@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brothers Drywall Services | Built to Last, Work You Trust — Ventura County, CA</title>
+<meta name="description" content="Brothers Drywall Services — Drywall repair, texture matching &amp; acoustical removal in Ventura County, CA. Hablamos Espa&ntilde;ol. Clean work. No shortcuts. Call 805-404-6649.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --blue: #1B55C5;
+  --blue-dark: #143E94;
+  --blue-light: #2D6BDE;
+  --blue-pale: #E8F0FE;
+  --blue-glow: #4A8BF5;
+  --orange: #F57C20;
+  --orange-light: #FF9642;
+  --orange-dark: #D96A10;
+  --white: #FFFFFF;
+  --off-white: #F8F9FC;
+  --gray-50: #F4F5F7;
+  --gray-100: #E8EAF0;
+  --gray-200: #D1D5E0;
+  --gray-300: #A0A8BC;
+  --gray-400: #6B7490;
+  --gray-500: #4A5168;
+  --gray-600: #2E3347;
+  --gray-900: #12141D;
+  --green: #22A861;
+  --shadow-sm: 0 1px 3px rgba(18,20,29,0.06);
+  --shadow-md: 0 4px 16px rgba(18,20,29,0.08);
+  --shadow-lg: 0 12px 40px rgba(18,20,29,0.1);
+  --shadow-xl: 0 20px 60px rgba(18,20,29,0.12);
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--gray-600);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+button,input,select,textarea { font-family: inherit; }
+
+/* ANIMATIONS */
+.reveal { opacity:0; transform:translateY(30px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:.1s } .reveal-d2 { transition-delay:.2s } .reveal-d3 { transition-delay:.3s }
+.reveal-d4 { transition-delay:.4s } .reveal-d5 { transition-delay:.5s }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px) } to { opacity:1; transform:translateY(0) } }
+@keyframes float { 0%,100% { transform:translateY(0) } 50% { transform:translateY(-8px) } }
+@keyframes pulse { 0%,100% { opacity:.6 } 50% { opacity:1 } }
+
+/* ============ HEADER ============ */
+.header {
+  position: fixed; top:0; left:0; right:0; z-index:1000;
+  padding: 0 clamp(20px,4vw,60px); height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  transition: all .3s var(--ease);
+}
+.header.scrolled { box-shadow: var(--shadow-md); background: rgba(255,255,255,0.97); }
+
+.header__logo { display:flex; align-items:center; gap:10px; }
+.header__logo-icon {
+  width:42px; height:42px; border-radius:50%;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-display); font-size:16px; font-weight:800;
+  color: var(--white); letter-spacing:0.5px; flex-shrink:0;
+}
+.header__logo-text { font-family:var(--font-display); font-size:20px; font-weight:800; color:var(--gray-900); letter-spacing:-0.3px; }
+.header__logo-text span { color:var(--blue); }
+
+.nav { display:flex; align-items:center; gap:28px; }
+.nav__link { font-size:14px; font-weight:500; color:var(--gray-400); transition:color .3s; }
+.nav__link:hover { color:var(--blue); }
+
+.header__espanol {
+  font-size:11px; font-weight:700; letter-spacing:0.5px;
+  color:var(--orange); background:rgba(245,124,32,0.08);
+  padding:5px 10px; border-radius:6px;
+}
+
+.header__cta {
+  background: var(--blue); color: var(--white);
+  font-family: var(--font-display); font-size:14px; font-weight:600;
+  padding:10px 22px; border:none; border-radius:var(--radius-sm);
+  cursor:pointer; transition:all .3s; letter-spacing:0.2px;
+}
+.header__cta:hover { background:var(--blue-light); transform:translateY(-1px); box-shadow:0 4px 16px rgba(27,85,197,0.25); }
+
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:8px; }
+.hamburger span { width:22px; height:2px; background:var(--gray-600); transition:all .3s; display:block; border-radius:2px; }
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)} .hamburger.active span:nth-child(2){opacity:0} .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+@media(max-width:960px) {
+  .hamburger{display:flex}
+  .nav{position:fixed;top:0;right:-100%;width:80%;max-width:360px;height:100vh;background:var(--white);flex-direction:column;padding:90px 36px 40px;gap:20px;transition:right .4s var(--ease-out);box-shadow:var(--shadow-xl)}
+  .nav.open{right:0}
+  .nav__link{font-size:17px;font-weight:600;color:var(--gray-600)}
+  .header__cta{width:100%;text-align:center;padding:14px}
+  .header__espanol{display:none}
+}
+
+.nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:998}
+.nav-overlay.show{display:block}
+
+/* ============ HERO ============ */
+.hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center;
+  background: linear-gradient(135deg, #EDF2FF 0%, #F4F7FF 40%, #FFF8F0 100%);
+  overflow:hidden; padding-top:76px;
+}
+
+.hero__shapes {
+  position:absolute; inset:0; overflow:hidden; pointer-events:none;
+}
+.hero__shape {
+  position:absolute; border-radius:50%; opacity:0.5;
+}
+.hero__shape--1 {
+  width:500px; height:500px; top:-100px; right:-100px;
+  background: radial-gradient(circle, rgba(27,85,197,0.08) 0%, transparent 70%);
+  animation: float 8s ease-in-out infinite;
+}
+.hero__shape--2 {
+  width:300px; height:300px; bottom:10%; left:-50px;
+  background: radial-gradient(circle, rgba(245,124,32,0.06) 0%, transparent 70%);
+  animation: float 6s ease-in-out infinite 2s;
+}
+.hero__shape--3 {
+  width:200px; height:200px; top:30%; left:40%;
+  background: radial-gradient(circle, rgba(27,85,197,0.04) 0%, transparent 70%);
+  animation: float 10s ease-in-out infinite 4s;
+}
+
+.hero__inner {
+  max-width:1240px; margin:0 auto; padding:60px clamp(20px,4vw,60px);
+  display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  position:relative; z-index:1;
+}
+
+.hero__badge {
+  display:inline-flex; align-items:center; gap:8px;
+  background: var(--white); border:1px solid var(--gray-100);
+  padding:8px 16px; border-radius:100px;
+  font-size:13px; font-weight:600; color:var(--blue);
+  box-shadow: var(--shadow-sm);
+  opacity:0; animation: fadeUp .7s var(--ease-out) .2s forwards;
+}
+.hero__badge-dot { width:8px; height:8px; border-radius:50%; background:var(--green); animation:pulse 2s infinite; }
+
+.hero__title {
+  font-family:var(--font-display); font-size:clamp(40px,5.5vw,68px);
+  font-weight:900; line-height:1.05; letter-spacing:-1.5px;
+  color:var(--gray-900); margin-top:20px;
+  opacity:0; animation: fadeUp .7s var(--ease-out) .4s forwards;
+}
+.hero__title span { color:var(--blue); }
+.hero__title em { font-style:normal; color:var(--orange); }
+
+.hero__subtitle {
+  font-size:18px; line-height:1.7; color:var(--gray-400);
+  margin-top:20px; max-width:480px;
+  opacity:0; animation: fadeUp .7s var(--ease-out) .6s forwards;
+}
+
+.hero__actions {
+  display:flex; align-items:center; gap:14px; margin-top:32px; flex-wrap:wrap;
+  opacity:0; animation: fadeUp .7s var(--ease-out) .8s forwards;
+}
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background: var(--blue); color: var(--white);
+  font-family:var(--font-display); font-size:16px; font-weight:600;
+  padding:16px 32px; border:none; border-radius:var(--radius);
+  cursor:pointer; transition:all .3s; letter-spacing:0.2px;
+}
+.btn-primary:hover { background:var(--blue-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(27,85,197,0.3); }
+
+.btn-secondary {
+  display:inline-flex; align-items:center; gap:8px;
+  background: var(--white); color: var(--gray-600);
+  font-family:var(--font-display); font-size:16px; font-weight:600;
+  padding:16px 28px; border:1px solid var(--gray-200); border-radius:var(--radius);
+  cursor:pointer; transition:all .3s;
+}
+.btn-secondary:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-pale); }
+
+.hero__phone {
+  display:flex; align-items:center; gap:16px; margin-top:20px;
+  opacity:0; animation: fadeUp .7s var(--ease-out) 1s forwards;
+}
+.hero__phone-item { display:flex; align-items:center; gap:6px; font-size:14px; font-weight:600; color:var(--gray-500); }
+.hero__phone-item svg { color:var(--blue); flex-shrink:0; }
+.hero__phone-item a { color:var(--gray-900); transition:color .3s; }
+.hero__phone-item a:hover { color:var(--blue); }
+
+.hero__images {
+  position:relative;
+  opacity:0; animation: fadeUp .8s var(--ease-out) .5s forwards;
+}
+.hero__img-main {
+  width:100%; border-radius:var(--radius-lg);
+  overflow:hidden; box-shadow:var(--shadow-xl);
+  aspect-ratio:4/3;
+}
+.hero__img-main img { width:100%; height:100%; object-fit:cover; }
+
+.hero__img-float {
+  position:absolute; bottom:-30px; left:-30px;
+  width:180px; border-radius:var(--radius);
+  overflow:hidden; box-shadow:var(--shadow-lg);
+  border:4px solid var(--white);
+  animation: float 6s ease-in-out infinite 1s;
+}
+.hero__img-float img { width:100%; aspect-ratio:1; object-fit:cover; }
+
+.hero__trust-badge {
+  position:absolute; top:20px; right:-16px;
+  background:var(--white); padding:12px 18px;
+  border-radius:var(--radius); box-shadow:var(--shadow-lg);
+  display:flex; align-items:center; gap:10px;
+  animation: float 5s ease-in-out infinite 2s;
+}
+.hero__trust-icon { width:36px; height:36px; border-radius:50%; background:rgba(34,168,97,0.1); display:flex; align-items:center; justify-content:center; color:var(--green); }
+.hero__trust-text { font-size:12px; font-weight:700; color:var(--gray-900); }
+.hero__trust-sub { font-size:11px; color:var(--gray-300); margin-top:1px; }
+
+@media(max-width:860px) {
+  .hero__inner{grid-template-columns:1fr;text-align:center;gap:40px}
+  .hero__subtitle{margin-left:auto;margin-right:auto}
+  .hero__actions{justify-content:center}
+  .hero__phone{justify-content:center}
+  .hero__img-float{left:auto;right:-10px;bottom:-20px;width:140px}
+  .hero__trust-badge{right:auto;left:10px;top:auto;bottom:-20px}
+}
+
+/* ============ STATS BAR ============ */
+.stats {
+  background:var(--white); padding:0 clamp(20px,4vw,60px);
+  position:relative; z-index:2; margin-top:-40px;
+}
+.stats__inner {
+  max-width:1100px; margin:0 auto;
+  background:var(--blue); border-radius:var(--radius-lg);
+  padding:40px; display:grid; grid-template-columns:repeat(4,1fr); gap:24px;
+  box-shadow: 0 20px 60px rgba(27,85,197,0.2);
+}
+.stat { text-align:center; position:relative; }
+.stat:not(:last-child)::after { content:''; position:absolute; right:0; top:15%; height:70%; width:1px; background:rgba(255,255,255,0.15); }
+.stat__number { font-family:var(--font-display); font-size:clamp(32px,4vw,48px); font-weight:900; color:var(--white); line-height:1; }
+.stat__label { font-size:13px; color:rgba(255,255,255,0.65); margin-top:6px; font-weight:500; letter-spacing:0.3px; }
+@media(max-width:640px) { .stats__inner{grid-template-columns:repeat(2,1fr);padding:28px} .stat:nth-child(2)::after{display:none} }
+
+/* ============ SECTION SHARED ============ */
+.section { padding:clamp(80px,10vw,120px) clamp(20px,4vw,60px); }
+.section--gray { background:var(--gray-50); }
+
+.section__header { text-align:center; margin-bottom:56px; }
+.section__label {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:700; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--blue);
+  margin-bottom:14px;
+}
+.section__label::before,.section__label::after { content:''; width:20px; height:2px; background:var(--blue); border-radius:2px; opacity:.3; }
+.section__title { font-family:var(--font-display); font-size:clamp(30px,4vw,48px); font-weight:800; letter-spacing:-0.5px; color:var(--gray-900); line-height:1.1; }
+.section__desc { font-size:17px; color:var(--gray-400); max-width:560px; margin:16px auto 0; line-height:1.7; }
+
+/* ============ ABOUT ============ */
+.about__inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+
+.about__images { position:relative; }
+.about__img-primary { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-lg); }
+.about__img-primary img { width:100%; aspect-ratio:4/5; object-fit:cover; }
+.about__img-secondary {
+  position:absolute; bottom:-24px; right:-24px;
+  width:200px; border-radius:var(--radius); overflow:hidden;
+  box-shadow:var(--shadow-lg); border:4px solid var(--white);
+}
+.about__img-secondary img { width:100%; aspect-ratio:1; object-fit:cover; }
+.about__espanol {
+  position:absolute; top:20px; left:-16px;
+  background:var(--orange); color:var(--white);
+  font-family:var(--font-display); font-size:14px; font-weight:700;
+  padding:12px 20px; border-radius:var(--radius-sm);
+  box-shadow:0 4px 20px rgba(245,124,32,0.3);
+  letter-spacing:0.5px;
+}
+
+.about__label { font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+.about__title { font-family:var(--font-display); font-size:clamp(28px,3.5vw,40px); font-weight:800; letter-spacing:-0.5px; color:var(--gray-900); line-height:1.15; margin-bottom:20px; }
+.about__text { font-size:16px; color:var(--gray-400); line-height:1.8; margin-bottom:14px; }
+
+.about__checks { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px; }
+.about__check { display:flex; align-items:center; gap:10px; font-size:15px; font-weight:600; color:var(--gray-600); }
+.about__check-icon { width:28px; height:28px; border-radius:50%; background:rgba(34,168,97,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--green); }
+
+@media(max-width:860px) {
+  .about__inner{grid-template-columns:1fr;gap:40px}
+  .about__img-secondary{right:0;bottom:-16px;width:160px}
+  .about__espanol{left:0;top:-12px}
+}
+
+/* ============ SERVICES ============ */
+.services__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+
+.svc-card {
+  background:var(--white); border:1px solid var(--gray-100);
+  border-radius:var(--radius); padding:36px 28px;
+  transition:all .3s var(--ease); position:relative; overflow:hidden;
+}
+.svc-card:hover { transform:translateY(-6px); box-shadow:var(--shadow-lg); border-color:transparent; }
+.svc-card:hover .svc-card__icon { background:var(--blue); color:var(--white); }
+
+.svc-card__icon {
+  width:52px; height:52px; border-radius:var(--radius-sm);
+  background:var(--blue-pale); color:var(--blue);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:20px; transition:all .3s;
+}
+.svc-card__num { position:absolute; top:16px; right:20px; font-family:var(--font-display); font-size:48px; font-weight:900; color:var(--gray-50); line-height:1; }
+.svc-card__title { font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--gray-900); margin-bottom:10px; letter-spacing:-0.2px; }
+.svc-card__desc { font-size:14px; color:var(--gray-400); line-height:1.7; }
+
+@media(max-width:860px){.services__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.services__grid{grid-template-columns:1fr}}
+
+/* ============ WHY US ============ */
+.why__grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
+
+.why-card { text-align:center; padding:32px 20px; }
+.why-card__icon {
+  width:68px; height:68px; margin:0 auto 20px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  transition:all .4s;
+}
+.why-card:nth-child(1) .why-card__icon { background:rgba(27,85,197,0.08); color:var(--blue); }
+.why-card:nth-child(2) .why-card__icon { background:rgba(245,124,32,0.08); color:var(--orange); }
+.why-card:nth-child(3) .why-card__icon { background:rgba(34,168,97,0.08); color:var(--green); }
+.why-card:nth-child(4) .why-card__icon { background:rgba(245,124,32,0.08); color:var(--orange); }
+.why-card:nth-child(5) .why-card__icon { background:rgba(27,85,197,0.08); color:var(--blue); }
+.why-card:nth-child(6) .why-card__icon { background:rgba(34,168,97,0.08); color:var(--green); }
+.why-card:hover .why-card__icon { transform:translateY(-4px) scale(1.05); }
+
+.why-card__title { font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--gray-900); margin-bottom:8px; }
+.why-card__desc { font-size:14px; color:var(--gray-400); line-height:1.7; }
+
+@media(max-width:768px){.why__grid{grid-template-columns:repeat(2,1fr);gap:20px}}
+@media(max-width:480px){.why__grid{grid-template-columns:1fr}}
+
+/* ============ GALLERY ============ */
+.gallery__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+
+.gallery__item { position:relative; overflow:hidden; border-radius:var(--radius-sm); aspect-ratio:1; background:var(--gray-100); cursor:pointer; }
+.gallery__item:first-child { grid-column:span 2; grid-row:span 2; }
+.gallery__item img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--ease); }
+.gallery__item:hover img { transform:scale(1.06); }
+
+.gallery__overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(18,20,29,0.7), transparent 50%);
+  opacity:0; transition:opacity .3s;
+  display:flex; align-items:flex-end; padding:16px;
+}
+.gallery__item:hover .gallery__overlay { opacity:1; }
+.gallery__label { font-family:var(--font-display); font-size:14px; font-weight:700; color:var(--white); letter-spacing:0.5px; }
+
+@media(max-width:768px){.gallery__grid{grid-template-columns:repeat(2,1fr)} .gallery__item:first-child{grid-column:span 2;grid-row:span 1}}
+
+/* ============ TESTIMONIALS ============ */
+.testimonials__grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+
+.testi-card {
+  background:var(--white); border:1px solid var(--gray-100);
+  border-radius:var(--radius); padding:32px 28px; transition:all .3s;
+}
+.testi-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:transparent; }
+
+.testi-card__stars { color:var(--orange); font-size:16px; letter-spacing:2px; margin-bottom:16px; }
+.testi-card__text { font-size:15px; color:var(--gray-500); line-height:1.75; font-style:italic; margin-bottom:24px; }
+.testi-card__author { display:flex; align-items:center; gap:12px; }
+.testi-card__avatar {
+  width:44px; height:44px; border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--blue-light));
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:16px; font-weight:700; color:var(--white);
+}
+.testi-card__name { font-size:15px; font-weight:700; color:var(--gray-900); }
+.testi-card__loc { font-size:13px; color:var(--gray-300); margin-top:2px; }
+
+@media(max-width:860px){.testimonials__grid{grid-template-columns:1fr;max-width:540px}}
+
+/* ============ SERVICE AREAS ============ */
+.areas__inner { max-width:1000px; margin:0 auto; text-align:center; }
+.areas__region { font-family:var(--font-display); font-size:clamp(16px,2vw,20px); font-weight:600; color:var(--gray-400); margin-bottom:32px; }
+.areas__region span { color:var(--blue); }
+.areas__cities { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+.areas__city {
+  padding:10px 24px; background:var(--white); border:1px solid var(--gray-100);
+  border-radius:100px; font-size:14px; font-weight:500; color:var(--gray-500);
+  transition:all .3s;
+}
+.areas__city:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-pale); }
+
+/* ============ CTA BANNER ============ */
+.cta-banner {
+  background:linear-gradient(135deg, var(--blue), var(--blue-dark));
+  padding:80px clamp(20px,4vw,60px); text-align:center;
+  position:relative; overflow:hidden;
+}
+.cta-banner::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06), transparent 60%),
+             radial-gradient(circle at 70% 30%, rgba(255,255,255,0.04), transparent 50%);
+}
+.cta-banner__title { font-family:var(--font-display); font-size:clamp(28px,4vw,48px); font-weight:800; color:var(--white); position:relative; letter-spacing:-0.5px; }
+.cta-banner__sub { font-size:17px; color:rgba(255,255,255,0.7); margin-top:12px; position:relative; }
+.cta-banner__actions { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:32px; position:relative; flex-wrap:wrap; }
+
+.btn-white {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--white); color:var(--blue);
+  font-family:var(--font-display); font-size:16px; font-weight:700;
+  padding:16px 32px; border:none; border-radius:var(--radius);
+  cursor:pointer; transition:all .3s;
+}
+.btn-white:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(0,0,0,0.15); }
+
+.btn-ghost {
+  display:inline-flex; align-items:center; gap:8px;
+  background:transparent; color:var(--white);
+  font-family:var(--font-display); font-size:16px; font-weight:600;
+  padding:15px 28px; border:2px solid rgba(255,255,255,0.25); border-radius:var(--radius);
+  cursor:pointer; transition:all .3s;
+}
+.btn-ghost:hover { border-color:rgba(255,255,255,0.6); background:rgba(255,255,255,0.05); }
+
+/* ============ CONTACT ============ */
+.contact__inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1.1fr; gap:64px; }
+.contact__info-title { font-family:var(--font-display); font-size:clamp(26px,3vw,36px); font-weight:800; color:var(--gray-900); letter-spacing:-0.3px; margin-bottom:16px; }
+.contact__info-text { font-size:16px; color:var(--gray-400); line-height:1.7; margin-bottom:36px; }
+
+.contact__detail { display:flex; gap:14px; margin-bottom:24px; }
+.contact__detail-icon {
+  width:44px; height:44px; border-radius:var(--radius-sm);
+  background:var(--blue-pale); color:var(--blue);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.contact__detail-lbl { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--gray-300); margin-bottom:3px; }
+.contact__detail-val { font-size:16px; font-weight:600; color:var(--gray-900); }
+.contact__detail-val a { transition:color .3s; } .contact__detail-val a:hover { color:var(--blue); }
+
+.contact__social { display:flex; gap:10px; margin-top:32px; }
+.contact__social-link {
+  width:44px; height:44px; border-radius:var(--radius-sm); border:1px solid var(--gray-100);
+  display:flex; align-items:center; justify-content:center; color:var(--gray-400);
+  transition:all .3s;
+}
+.contact__social-link:hover { border-color:var(--blue); color:var(--blue); background:var(--blue-pale); }
+
+.contact__espanol-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  margin-top:24px; padding:10px 18px; border-radius:var(--radius-sm);
+  background:rgba(245,124,32,0.06); border:1px solid rgba(245,124,32,0.12);
+  font-size:14px; font-weight:700; color:var(--orange);
+}
+
+.contact__form {
+  background:var(--gray-50); border:1px solid var(--gray-100);
+  border-radius:var(--radius-lg); padding:40px 36px;
+}
+.contact__form-title { font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--gray-900); margin-bottom:28px; }
+
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:13px; font-weight:600; color:var(--gray-500); margin-bottom:6px; }
+.form-group input,.form-group select,.form-group textarea {
+  width:100%; padding:13px 16px; background:var(--white);
+  border:1px solid var(--gray-200); border-radius:var(--radius-sm);
+  color:var(--gray-900); font-size:15px; transition:border-color .3s;
+  outline:none; -webkit-appearance:none;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px rgba(27,85,197,0.08); }
+.form-group select {
+  cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%236B7490' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 14px center; padding-right:36px;
+}
+.form-group textarea { resize:vertical; min-height:110px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.form-submit {
+  width:100%; background:var(--blue); color:var(--white);
+  font-family:var(--font-display); font-size:16px; font-weight:700;
+  padding:15px; border:none; border-radius:var(--radius-sm);
+  cursor:pointer; transition:all .3s; margin-top:6px; letter-spacing:0.3px;
+}
+.form-submit:hover { background:var(--blue-light); transform:translateY(-1px); box-shadow:0 4px 16px rgba(27,85,197,0.25); }
+
+@media(max-width:860px) { .contact__inner{grid-template-columns:1fr;gap:40px} .contact__form{padding:28px 22px} .form-row{grid-template-columns:1fr} }
+
+/* ============ FOOTER ============ */
+.footer { background:var(--gray-900); color:rgba(255,255,255,0.6); padding:64px clamp(20px,4vw,60px) 28px; }
+.footer__inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1.5fr; gap:40px; }
+.footer__brand { font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--white); margin-bottom:14px; }
+.footer__brand span { color:var(--blue-glow); }
+.footer__brand-text { font-size:14px; line-height:1.7; margin-bottom:16px; }
+.footer__heading { font-family:var(--font-display); font-size:14px; font-weight:700; letter-spacing:0.5px; color:var(--white); margin-bottom:18px; }
+.footer__links { list-style:none; }
+.footer__links li { margin-bottom:10px; }
+.footer__links a { font-size:14px; transition:color .3s; }
+.footer__links a:hover { color:var(--blue-glow); }
+.footer__contact-item { font-size:14px; margin-bottom:8px; }
+.footer__contact-item a { transition:color .3s; }
+.footer__contact-item a:hover { color:var(--blue-glow); }
+.footer__bottom {
+  max-width:1200px; margin:48px auto 0; padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;
+}
+.footer__copy { font-size:13px; }
+.footer__legal { display:flex; gap:20px; }
+.footer__legal a { font-size:13px; transition:color .3s; }
+.footer__legal a:hover { color:var(--blue-glow); }
+@media(max-width:860px){.footer__inner{grid-template-columns:1fr 1fr}}
+@media(max-width:540px){.footer__inner{grid-template-columns:1fr} .footer__bottom{flex-direction:column;text-align:center}}
+
+/* SELECTION & SCROLLBAR */
+::selection { background:var(--blue); color:var(--white); }
+::-webkit-scrollbar { width:8px }
+::-webkit-scrollbar-track { background:var(--gray-50) }
+::-webkit-scrollbar-thumb { background:var(--gray-200); border-radius:4px }
+::-webkit-scrollbar-thumb:hover { background:var(--blue) }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <a href="#" class="header__logo">
+    <div class="header__logo-icon">BD</div>
+    <div class="header__logo-text">Brothers <span>Drywall</span> Services</div>
+  </a>
+  <nav class="nav" id="nav">
+    <a href="#about" class="nav__link">About</a>
+    <a href="#services" class="nav__link">Services</a>
+    <a href="#gallery" class="nav__link">Gallery</a>
+    <a href="#instagram" class="nav__link">Instagram</a>
+    <a href="#areas" class="nav__link">Areas</a>
+    <a href="#contact" class="nav__link">Contact</a>
+    <span class="header__espanol">Hablamos Espa&ntilde;ol</span>
+    <a href="#contact" class="header__cta">Contact Us</a>
+  </nav>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</header>
+<div class="nav-overlay" id="navOverlay"></div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero__shapes">
+    <div class="hero__shape hero__shape--1"></div>
+    <div class="hero__shape hero__shape--2"></div>
+    <div class="hero__shape hero__shape--3"></div>
+  </div>
+  <div class="hero__inner">
+    <div>
+      <div class="hero__badge"><span class="hero__badge-dot"></span> Drywall Experts &mdash; Ventura County, CA</div>
+      <h1 class="hero__title">Built to <span>Last.</span><br>Work You <em>Trust.</em></h1>
+      <p class="hero__subtitle">Turning rough walls into smooth finishes. Drywall repair, texture matching &amp; acoustical removal across Ventura County. Clean work. No shortcuts.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn-primary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Contact Us
+        </a>
+        <a href="tel:8054046649" class="btn-secondary">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+      </div>
+      <div class="hero__phone">
+        <div class="hero__phone-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:8054046649">(805) 404-6649</a>
+        </div>
+        <div class="hero__phone-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text: <a href="sms:8056250206">(805) 625-0206</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero__images">
+      <div class="hero__img-main"><img src="images/p10.jpeg" alt="Brothers Drywall — vaulted ceiling drywall installation"></div>
+      <div class="hero__img-float"><img src="images/p07.jpeg" alt="Wood beam framing and ceiling work"></div>
+      <div class="hero__trust-badge">
+        <div class="hero__trust-icon">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <div>
+          <div class="hero__trust-text">Hablamos Espa&ntilde;ol</div>
+          <div class="hero__trust-sub">Ventura County, CA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="stats">
+  <div class="stats__inner" style="grid-template-columns:repeat(3,1fr)">
+    <div class="stat reveal" style="display:flex;align-items:center;justify-content:center;gap:10px">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.11 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff">Call Us</div><div class="stat__label"><a href="tel:8054046649" style="color:rgba(255,255,255,0.85)">(805) 404-6649</a></div></div>
+    </div>
+    <div class="stat reveal reveal-d1" style="display:flex;align-items:center;justify-content:center;gap:10px">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      <div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff">Text Us</div><div class="stat__label"><a href="sms:8056250206" style="color:rgba(255,255,255,0.85)">(805) 625-0206</a></div></div>
+    </div>
+    <div class="stat reveal reveal-d2" style="display:flex;align-items:center;justify-content:center;gap:10px">
+      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <div><div style="font-family:var(--font-display);font-weight:700;font-size:16px;color:#fff">Follow Us</div><div class="stat__label"><a href="https://www.instagram.com/brothersdrywall805" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.85)">@brothersdrywall805</a></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about__inner">
+    <div class="about__images reveal">
+      <div class="about__img-primary"><img src="images/p01.jpeg" alt="Drywall installation in progress" loading="lazy"></div>
+      <div class="about__img-secondary"><img src="images/p08.jpeg" alt="Staircase and smooth wall finish" loading="lazy"></div>
+      <div class="about__espanol">Hablamos Espa&ntilde;ol</div>
+    </div>
+    <div class="reveal reveal-d2">
+      <div class="about__label">About Us</div>
+      <h2 class="about__title">Clean Work. No Shortcuts.</h2>
+      <p class="about__text">Brothers Drywall Services is a drywall contractor based in Ventura County, specializing in drywall repair, texture matching, and acoustical removal. We take pride in every wall we finish, every texture we apply, and every space we transform.</p>
+      <p class="about__text">Built to last. Work you trust. That's the standard we hold ourselves to on every job. Hablamos Espa&ntilde;ol &mdash; we're proud to serve our community in both English and Spanish.</p>
+      <div class="about__checks">
+        <div class="about__check"><div class="about__check-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Hablamos Espa&ntilde;ol</div>
+        <div class="about__check"><div class="about__check-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Ventura County</div>
+        <div class="about__check"><div class="about__check-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Clean Work</div>
+        <div class="about__check"><div class="about__check-icon"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No Shortcuts</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section--gray" id="services">
+  <div class="section__header">
+    <div class="section__label reveal">What We Do</div>
+    <h2 class="section__title reveal reveal-d1">Our Services</h2>
+    <p class="section__desc reveal reveal-d2">Drywall repair, texture matching, acoustical removal, and more across Ventura County.</p>
+  </div>
+  <div class="services__grid">
+    <div class="svc-card reveal">
+      <div class="svc-card__num">01</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg></div>
+      <h3 class="svc-card__title">Drywall Installation</h3>
+      <p class="svc-card__desc">Professional hanging and installation for new construction, additions, and remodels. Precise fits and seamless results on every wall and ceiling.</p>
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-card__num">02</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <h3 class="svc-card__title">Drywall Repair</h3>
+      <p class="svc-card__desc">Expert patching, hole repair, water damage restoration, and crack fixing. We restore your walls to their original condition — or better.</p>
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-card__num">03</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3 class="svc-card__title">Texture Matching</h3>
+      <p class="svc-card__desc">Custom texture application including knockdown, orange peel, smooth finish, and skip trowel. Taping, mudding, and sanding to perfection.</p>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-card__num">04</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3 class="svc-card__title">Renovation &amp; Remodel</h3>
+      <p class="svc-card__desc">Complete drywall solutions for kitchen, bathroom, and whole-home remodels. We work with your contractor or directly with you.</p>
+    </div>
+    <div class="svc-card reveal reveal-d1">
+      <div class="svc-card__num">05</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="1" y="6" width="22" height="12" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+      <h3 class="svc-card__title">New Construction</h3>
+      <p class="svc-card__desc">Ground-up drywall services for new homes and commercial builds. From framing to final finish, we handle the full scope.</p>
+    </div>
+    <div class="svc-card reveal reveal-d2">
+      <div class="svc-card__num">06</div>
+      <div class="svc-card__icon"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+      <h3 class="svc-card__title">Acoustical Removal</h3>
+      <p class="svc-card__desc">Safe, clean removal of outdated popcorn and acoustic ceilings. We scrape, smooth, and refinish for a modern, updated look.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section" id="why">
+  <div class="section__header">
+    <div class="section__label reveal">The Difference</div>
+    <h2 class="section__title reveal reveal-d1">Why Choose Brothers Drywall</h2>
+  </div>
+  <div class="why__grid">
+    <div class="why-card reveal">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+      <h3 class="why-card__title">Drywall Repair</h3>
+      <p class="why-card__desc">Patching, hole repair, water damage, cracks &mdash; we restore your walls to their original condition.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <h3 class="why-card__title">Texture Matching</h3>
+      <p class="why-card__desc">Knockdown, orange peel, smooth finish, skip trowel &mdash; matched perfectly to your existing walls.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+      <h3 class="why-card__title">Acoustical Removal</h3>
+      <p class="why-card__desc">Safe removal of outdated popcorn and acoustic ceilings. Scraped, smoothed, and refinished.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <h3 class="why-card__title">Hablamos Espa&ntilde;ol</h3>
+      <p class="why-card__desc">Our bilingual team communicates clearly in both English and Spanish on every project.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <h3 class="why-card__title">No Shortcuts</h3>
+      <p class="why-card__desc">Every seam, every corner, every texture &mdash; done with precision. Clean work, guaranteed.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-card__icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <h3 class="why-card__title">Ventura County</h3>
+      <p class="why-card__desc">Based in Ventura County and serving our local community with quality drywall work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section section--gray" id="gallery">
+  <div class="section__header">
+    <div class="section__label reveal">Our Work</div>
+    <h2 class="section__title reveal reveal-d1">Project Gallery</h2>
+    <p class="section__desc reveal reveal-d2">Real photos from our jobs across Ventura County. Quality you can see.</p>
+  </div>
+  <div class="gallery__grid reveal">
+    <div class="gallery__item"><img src="images/p10.jpeg" alt="Vaulted ceiling drywall" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Vaulted Ceiling</span></div></div>
+    <div class="gallery__item"><img src="images/p02.jpeg" alt="Framing and drywall installation" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">New Construction</span></div></div>
+    <div class="gallery__item"><img src="images/p07.jpeg" alt="Wood beam ceiling framing" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Ceiling Framing</span></div></div>
+    <div class="gallery__item"><img src="images/p08.jpeg" alt="Staircase smooth walls" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Smooth Finish</span></div></div>
+    <div class="gallery__item"><img src="images/p13.jpeg" alt="Mudding and taping work" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Taping &amp; Mudding</span></div></div>
+    <div class="gallery__item"><img src="images/p09.jpeg" alt="Commercial drywall project" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Commercial</span></div></div>
+    <div class="gallery__item"><img src="images/p05.jpeg" alt="Scaffolding and renovation" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Renovation</span></div></div>
+    <div class="gallery__item"><img src="images/p14.jpeg" alt="Arched windows room" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Custom Home</span></div></div>
+    <div class="gallery__item"><img src="images/p12.jpeg" alt="Smooth wall finish" loading="lazy"><div class="gallery__overlay"><span class="gallery__label">Wall Finish</span></div></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM / SEE OUR WORK -->
+<section class="section" id="instagram" style="text-align:center">
+  <div class="section__header">
+    <div class="section__label reveal">See Our Work</div>
+    <h2 class="section__title reveal reveal-d1">Follow Us on Instagram</h2>
+    <p class="section__desc reveal reveal-d2">Check out our latest projects, before &amp; after shots, and more on our Instagram page.</p>
+  </div>
+  <div class="reveal reveal-d3" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
+    <a href="https://www.instagram.com/brothersdrywall805" target="_blank" rel="noopener" class="btn-primary" style="font-size:15px;padding:14px 28px">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      @brothersdrywall805
+    </a>
+  </div>
+</section>
+
+<!-- SERVICE AREAS -->
+<section class="section section--gray" id="areas">
+  <div class="section__header">
+    <div class="section__label reveal">Coverage</div>
+    <h2 class="section__title reveal reveal-d1">Service Areas</h2>
+  </div>
+  <div class="areas__inner">
+    <div class="areas__region reveal">Proudly Serving <span>Ventura County</span>, California</div>
+    <div class="areas__cities reveal reveal-d1">
+      <span class="areas__city">Ventura</span><span class="areas__city">Oxnard</span><span class="areas__city">Camarillo</span>
+      <span class="areas__city">Thousand Oaks</span><span class="areas__city">Simi Valley</span><span class="areas__city">Moorpark</span>
+      <span class="areas__city">Santa Paula</span><span class="areas__city">Fillmore</span><span class="areas__city">Ojai</span>
+      <span class="areas__city">Port Hueneme</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <h2 class="cta-banner__title">Ready to Start Your Project?</h2>
+  <p class="cta-banner__sub">Call or text us today to discuss your drywall project. Hablamos Espa&ntilde;ol.</p>
+  <div class="cta-banner__actions">
+    <a href="#contact" class="btn-white">Contact Us</a>
+    <a href="tel:8054046649" class="btn-ghost">Call (805) 404-6649</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact__inner">
+    <div class="reveal">
+      <h2 class="contact__info-title">Let's Talk About Your Project</h2>
+      <p class="contact__info-text">Whether you need a quick repair or a full-scale installation, we're here to help. Give us a call or send us a text to get started.</p>
+      <div class="contact__detail">
+        <div class="contact__detail-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><div class="contact__detail-lbl">Call Us</div><div class="contact__detail-val"><a href="tel:8054046649">(805) 404-6649</a></div></div>
+      </div>
+      <div class="contact__detail">
+        <div class="contact__detail-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <div><div class="contact__detail-lbl">Text Us</div><div class="contact__detail-val"><a href="sms:8056250206">(805) 625-0206</a> &bull; <a href="sms:8052851157">(805) 285-1157</a></div></div>
+      </div>
+      <div class="contact__detail">
+        <div class="contact__detail-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="contact__detail-lbl">Location</div><div class="contact__detail-val">Ventura County, California</div></div>
+      </div>
+      <div class="contact__social">
+        <a href="https://www.instagram.com/brothersdrywall805" target="_blank" rel="noopener" class="contact__social-link" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="tel:8054046649" class="contact__social-link" aria-label="Phone"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      </div>
+      <div class="contact__espanol-tag">&#127474;&#127485; Hablamos Espa&ntilde;ol &mdash; Ll&aacute;menos hoy</div>
+    </div>
+    <div class="contact__form reveal reveal-d2">
+      <h3 class="contact__form-title">Send Us a Message</h3>
+      <p style="font-size:13px;color:var(--gray-400);margin-bottom:20px">Fill out the form below and it will open your phone's messaging app to text us directly at (805) 625-0206.</p>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Your name" required></div>
+          <div class="form-group"><label for="phone">Your Phone Number</label><input type="tel" id="phone" name="phone" placeholder="(805) 000-0000" required></div>
+        </div>
+        <div class="form-group"><label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
+            <option value="Drywall Repair">Drywall Repair</option>
+            <option value="Texture Matching">Texture Matching</option>
+            <option value="Acoustical Removal">Acoustical Removal</option>
+            <option value="Drywall Installation">Drywall Installation</option>
+            <option value="Renovation">Renovation</option>
+            <option value="New Construction">New Construction</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="message">Project Details</label><textarea id="message" name="message" placeholder="Tell us about your project..."></textarea></div>
+        <button type="submit" class="form-submit">Send via Text Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__brand">Brothers <span>Drywall</span></div>
+      <p class="footer__brand-text">Turning rough walls into smooth finishes. Drywall services across Ventura County, CA. Clean work. No shortcuts.</p>
+      <p class="footer__brand-text" style="color:var(--orange-light);font-size:13px">Hablamos Espa&ntilde;ol</p>
+    </div>
+    <div>
+      <div class="footer__heading">Quick Links</div>
+      <ul class="footer__links"><li><a href="#about">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#instagram">Instagram</a></li><li><a href="#contact">Contact</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__heading">Services</div>
+      <ul class="footer__links"><li><a href="#services">Drywall Installation</a></li><li><a href="#services">Drywall Repair</a></li><li><a href="#services">Texture Matching</a></li><li><a href="#services">Renovation</a></li><li><a href="#services">New Construction</a></li><li><a href="#services">Acoustical Removal</a></li></ul>
+    </div>
+    <div>
+      <div class="footer__heading">Contact</div>
+      <div class="footer__contact-item">Call: <a href="tel:8054046649">(805) 404-6649</a></div>
+      <div class="footer__contact-item">Text: <a href="sms:8056250206">(805) 625-0206</a></div>
+      <div class="footer__contact-item">Text: <a href="sms:8052851157">(805) 285-1157</a></div>
+      <div class="footer__contact-item" style="margin-top:8px"><a href="https://www.instagram.com/brothersdrywall805" target="_blank" rel="noopener">@brothersdrywall805</a></div>
+      <div class="footer__contact-item">Ventura County, CA</div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__copy">&copy; 2026 Brothers Drywall Services. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Mobile nav
+const hamburger=document.getElementById('hamburger'),nav=document.getElementById('nav'),overlay=document.getElementById('navOverlay');
+function toggleNav(){hamburger.classList.toggle('active');nav.classList.toggle('open');overlay.classList.toggle('show');document.body.style.overflow=nav.classList.contains('open')?'hidden':''}
+hamburger.addEventListener('click',toggleNav);overlay.addEventListener('click',toggleNav);
+nav.querySelectorAll('.nav__link').forEach(l=>l.addEventListener('click',()=>{if(nav.classList.contains('open'))toggleNav()}));
+
+// Sticky header
+window.addEventListener('scroll',()=>{document.getElementById('header').classList.toggle('scrolled',window.pageYOffset>40)},{passive:true});
+
+// Scroll reveal
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){en.target.classList.add('visible');ro.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Form — composes SMS to Brothers Drywall
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const service=document.getElementById('service').value;
+  const message=document.getElementById('message').value.trim();
+  if(!name||!phone||!service){alert('Please fill in your name, phone number, and select a service.');return;}
+  let body='Hi Brothers Drywall! My name is '+name+'. Phone: '+phone+'. Service needed: '+service+'.';
+  if(message) body+=' Details: '+message;
+  const smsUrl='sms:8056250206'+(navigator.userAgent.match(/iPhone/i)?'&':'?')+'body='+encodeURIComponent(body);
+  window.location.href=smsUrl;
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+</script>
+</body>
+</html>
